@@ -29,11 +29,6 @@ Streamlit opens the app in your browser (default http://localhost:8501). Upload
 a file in the sidebar, choose which repositories to cross-reference, set the
 High Donor floor, and select **Run analysis**.
 
-Two example files are included in `sample_data/` so you can try it immediately:
-
-- `sample_data/receipts_example.csv` — a receipts export
-- `sample_data/quarterly_example.csv` — a quarterly filing
-
 ---
 
 ## Accepted input formats
@@ -81,10 +76,6 @@ each contains. Each list keeps its own real-world schema:
 | federal lobbyist masterlist | individual name | `lobbyist_full_name`, `code_desc` |
 | leadership pac masterlist | committee id / name | `Committee_Id`, `Sponsor_Name` |
 | politico young republicans list | individual name + state | `NAME`, `State`, `Politico.Quote` |
-
-The lists shipped here are the truncated samples that were provided. **To run
-against full data, replace the files in `repositories/` with your complete
-masterlists, keeping the same filenames and column headers.**
 
 ---
 
@@ -142,9 +133,6 @@ keeps it fast on large files.
 ---
 
 ## Architecture
-
-Data logic and UI are kept separate, as required.
-
 ```
 app.py                 Streamlit UI only (rendering, layout, styling)
 fecscope/
@@ -169,5 +157,3 @@ formatting values for display.
   total or affiliation against the underlying FEC records before relying on it.
 - Individual identity uses name + ZIP (falling back to state). A donor who files
   under materially different names or locations may appear as more than one row.
-- The bundled masterlists are truncated samples, so the example files will show
-  few or no flags until you supply full repositories.
