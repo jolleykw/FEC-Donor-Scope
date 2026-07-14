@@ -1,0 +1,4 @@
+# Donor Scope - runtime dependencies
+streamlit>=1.40
+pandas>=2.0
+rapidfuzz>=3.0   # optional but recommended; the app falls back to difflib if absent
